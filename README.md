@@ -1,68 +1,100 @@
 # The Farmer Was Replaced - Scripts d'automatisation
 
-Scripts Python pour automatiser le gameplay du jeu "The Farmer Was Replaced".
+Automatisez votre ferme et optimisez votre progression dans "The Farmer Was Replaced".
 
-## Description
+## Pourquoi utiliser ces scripts?
 
-Ce projet contient une collection de modules optimisés pour gérer automatiquement les différentes tâches du jeu "The Farmer Was Replaced". Les scripts utilisent une gestion centralisée des drones et une architecture modulaire pour maximiser l'efficacité des opérations agricoles et d'exploration.
+Vous en avez marre de gérer manuellement votre ferme? Ces scripts vous permettent de:
 
-## Structure du projet
+- Automatiser complètement votre farming avec gestion intelligente des priorités
+- Multiplier votre efficacité grâce à une gestion optimisée des drones
+- Résoudre les labyrinthes rapidement avec exploration multi-drones
+- Trier et farmer les cactus sans effort
+- Récolter les tournesols par niveau de pétales automatiquement
 
-### Modules principaux
+## Installation
 
-- **newMain.py**: Point d'entrée principal qui gère la boucle de jeu et la priorisation des cultures
-- **tools.py**: Fonctions utilitaires centralisées incluant la gestion des drones, navigation et priorisation
-- **parameters.py**: Configuration centralisée des paramètres de jeu et définitions des plantes
+1. Copiez tous les fichiers dans votre dossier de sauvegarde du jeu
+2. Ouvrez `parameters.py` et ajustez les valeurs selon vos besoins:
+   - `WORLD_SIZE`: Taille de votre grille
+   - `DRONE_NUMBER`: Nombre de drones disponibles
+   - `PLANTS`: Définissez vos objectifs de récolte et priorités
 
-### Modules spécialisés
+3. Lancez `newMain.py` dans le jeu
 
-- **farmModule.py**: Gestion générale des cultures (plantation, récolte, farming)
-- **sunflowerModule.py**: Logique spécialisée pour la culture des tournesols avec tri par pétales
-- **mazeModule.py**: Résolution de labyrinthes multi-drones avec stratégies right-hand et left-hand
-- **cactusModule.py**: Culture et tri des cactus en grille
-- **bonesModule.py**: Farming d'os via dinosaures
+## Outils disponibles dans tools.py
 
-## Fonctionnalités principales
+### drone_grid(function, parameter)
 
-### Gestion des drones
+La fonction la plus puissante du projet. Elle gère automatiquement le spawn et la répartition de vos drones sur toute la grille.
 
-Utilisation d'un système centralisé `drone_grid()` pour:
-- Spawn automatique de drones sur toute la grille
+Utilisation:
+```python
+tools.drone_grid(plant_line, Entities.Carrots)
+```
+
+Avantages:
+- Spawn automatique du nombre optimal de drones
 - Distribution parallèle des tâches
-- Gestion optimisée des ressources
+- Gestion intelligente du positionnement
+- Compatible avec toutes vos fonctions de farming
 
-### Priorisation intelligente
+### go_to(x, y)
 
-Système de scoring pour déterminer automatiquement la culture prioritaire basé sur:
-- Quantités actuelles vs objectifs
-- Temps de cycle de croissance
-- Disponibilité des ressources
+Navigation optimisée qui prend le chemin le plus court en tenant compte du wrapping de la carte.
 
-### Optimisations spécifiques
+```python
+tools.go_to(10, 5)
+```
 
-- **Tournesols**: Récolte par niveau de pétales sans tri coûteux
-- **Labyrinthes**: Exploration multi-drones avec détection de boucles
-- **Cactus**: Tri bidirectionnel optimisé
+### priority_crop()
 
-## Conventions de code
+Détermine automatiquement quelle culture planter en fonction de vos objectifs et stocks actuels.
 
-- Variables: camelCase
-- Constantes: SNAKE_CASE majuscules
-- Modules: organisation par fonctionnalité
+```python
+currentCrop = tools.priority_crop()
+```
 
-## Limitations
+### smart_clear()
 
-Le projet est conçu pour l'interpréteur Python spécifique du jeu, qui présente certaines restrictions:
-- Pas d'opérateur ternaire inline
-- Pas de `float('inf')`
-- Pas de lambda avec arguments par défaut
-- Variables d'autres modules considérées comme constantes
+Nettoie efficacement toute la ferme avec des drones avant de changer de culture, pour économiser vos graines.
 
-## Référence
+```python
+tools.smart_clear()
+```
 
-Basé sur le jeu: https://thefarmerwasreplaced.wiki.gg/
+## Modules spécialisés
 
-## Auteur
+- **farmModule.py**: Farming automatique de toutes les cultures standard
+- **sunflowerModule.py**: Récolte optimisée des tournesols par niveau de pétales
+- **mazeModule.py**: Résolution rapide des labyrinthes avec stratégies multiples
+- **cactusModule.py**: Culture et tri automatique des cactus
+- **bonesModule.py**: Farming d'os avec les dinosaures
 
-Développé pour automatiser et optimiser le gameplay de "The Farmer Was Replaced".
+## Comment intégrer dans votre ferme existante
+
+Vous avez déjà vos propres scripts? Pas de problème:
+
+1. Importez juste `tools.py` et `parameters.py`
+2. Utilisez `tools.drone_grid()` pour remplacer vos boucles manuelles
+3. Utilisez `tools.go_to()` pour vos déplacements
+4. Configurez `parameters.py` selon vos besoins
+
+Exemple d'intégration:
+```python
+import tools
+import parameters
+
+def ma_fonction_farm():
+    tools.drone_grid(ma_ligne_custom, mon_parametre)
+```
+
+## Support
+
+Si ces scripts vous aident à progresser dans le jeu, vous pouvez me soutenir:
+https://ko-fi.com/thorrdu
+
+## Référence du jeu
+
+Wiki officiel: https://thefarmerwasreplaced.wiki.gg/
 
