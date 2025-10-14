@@ -1,5 +1,5 @@
 WORLD_SIZE = get_world_size()
-PRIORITY_CROP = None
+PRIORITY_CROP = Items.Gold
 DRONE_NUMBER = max_drones()
 
 PLANTS = [
@@ -21,28 +21,28 @@ PLANTS = [
 		"name":"tree",
 		"plant":Entities.Tree,
 		"item":Items.Wood,
-		"target":1000000000,
+		"target":100000000000,
 		"priority":5
 	},
 	{
 		"name":"carrot",
 		"plant":Entities.Carrot,
 		"item":Items.Carrot,
-		"target":1000000000,
+		"target":10000000000,
 		"priority":5
 	},
 	{
 		"name":"pumpkin",
 		"plant":Entities.Pumpkin,
 		"item":Items.Pumpkin,
-		"target":100000000,
+		"target":1000000,
 		"priority":4
 	},
 	{
 		"name":"cactus",
 		"plant":Entities.Cactus,
 		"item":Items.Cactus,
-		"target":100000000,
+		"target":10000000000,
 		"priority":4
 	},
 	{
@@ -62,7 +62,7 @@ PLANTS = [
 
 ]
 
-SUNFLOWER_CYCLE = 5
+SUNFLOWER_CYCLE = 10
 
 
 def get_plant(value,index):

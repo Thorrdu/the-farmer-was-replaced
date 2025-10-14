@@ -22,5 +22,3 @@ while True:
 	
 	firstLoop = False
 	
-	
-	

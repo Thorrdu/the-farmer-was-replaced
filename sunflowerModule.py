@@ -48,7 +48,7 @@ def farm_sunflower():
 			if sunflowerData["petals"] > maxPetals:
 				maxPetals = sunflowerData["petals"]
 		
-		while maxPetals > 0:
+		while maxPetals > 7:
 			sunflowersAtThisLevel = []
 			for sunflowerData in allPetals:
 				if sunflowerData["petals"] == maxPetals:
