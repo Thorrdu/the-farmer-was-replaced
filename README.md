@@ -1,47 +1,47 @@
-# The Farmer Was Replaced - Scripts d'automatisation
+# The Farmer Was Replaced - Automation Scripts
 
-Automatisez votre ferme et optimisez votre progression dans "The Farmer Was Replaced".
+Automate your farm and optimize your progression in "The Farmer Was Replaced".
 
-## Pourquoi utiliser ces scripts?
+## Why use these scripts?
 
-Vous en avez marre de gérer manuellement votre ferme? Ces scripts vous permettent de:
+Tired of manually managing your farm? These scripts allow you to:
 
-- Automatiser complètement votre farming avec gestion intelligente des priorités
-- Multiplier votre efficacité grâce à une gestion optimisée des drones
-- Résoudre les labyrinthes rapidement avec exploration multi-drones
-- Trier et farmer les cactus sans effort
-- Récolter les tournesols par niveau de pétales automatiquement
+- Fully automate your farming with intelligent priority management
+- Multiply your efficiency with optimized drone management
+- Solve mazes quickly with multi-drone exploration
+- Sort and farm cacti effortlessly
+- Harvest sunflowers by petal level automatically
 
 ## Installation
 
-1. Copiez tous les fichiers dans votre dossier de sauvegarde du jeu
-2. Ouvrez `parameters.py` et ajustez les valeurs selon vos besoins:
-   - `WORLD_SIZE`: Taille de votre grille
-   - `DRONE_NUMBER`: Nombre de drones disponibles
-   - `PLANTS`: Définissez vos objectifs de récolte et priorités
+1. Copy all files to your game save folder
+2. Open `parameters.py` and adjust values according to your needs:
+   - `WORLD_SIZE`: Your grid size
+   - `DRONE_NUMBER`: Number of available drones
+   - `PLANTS`: Set your harvest goals and priorities
 
-3. Lancez `newMain.py` dans le jeu
+3. Run `newMain.py` in the game
 
-## Outils disponibles dans tools.py
+## Available tools in tools.py
 
 ### drone_grid(function, parameter)
 
-La fonction la plus puissante du projet. Elle gère automatiquement le spawn et la répartition de vos drones sur toute la grille.
+The most powerful function in the project. It automatically handles spawning and distributing your drones across the entire grid.
 
-Utilisation:
+Usage:
 ```python
 tools.drone_grid(plant_line, Entities.Carrots)
 ```
 
-Avantages:
-- Spawn automatique du nombre optimal de drones
-- Distribution parallèle des tâches
-- Gestion intelligente du positionnement
-- Compatible avec toutes vos fonctions de farming
+Benefits:
+- Automatic spawning of the optimal number of drones
+- Parallel task distribution
+- Intelligent positioning management
+- Compatible with all your farming functions
 
 ### go_to(x, y)
 
-Navigation optimisée qui prend le chemin le plus court en tenant compte du wrapping de la carte.
+Optimized navigation that takes the shortest path while accounting for map wrapping.
 
 ```python
 tools.go_to(10, 5)
@@ -49,7 +49,7 @@ tools.go_to(10, 5)
 
 ### priority_crop()
 
-Détermine automatiquement quelle culture planter en fonction de vos objectifs et stocks actuels.
+Automatically determines which crop to plant based on your goals and current stock.
 
 ```python
 currentCrop = tools.priority_crop()
@@ -57,44 +57,44 @@ currentCrop = tools.priority_crop()
 
 ### smart_clear()
 
-Nettoie efficacement toute la ferme avec des drones avant de changer de culture, pour économiser vos graines.
+Efficiently clears the entire farm with drones before changing crops, to save your seeds.
 
 ```python
 tools.smart_clear()
 ```
 
-## Modules spécialisés
+## Specialized modules
 
-- **farmModule.py**: Farming automatique de toutes les cultures standard
-- **sunflowerModule.py**: Récolte optimisée des tournesols par niveau de pétales
-- **mazeModule.py**: Résolution rapide des labyrinthes avec stratégies multiples
-- **cactusModule.py**: Culture et tri automatique des cactus
-- **bonesModule.py**: Farming d'os avec les dinosaures
+- **farmModule.py**: Automatic farming of all standard crops
+- **sunflowerModule.py**: Optimized sunflower harvest by petal level
+- **mazeModule.py**: Fast maze solving with multiple strategies
+- **cactusModule.py**: Automatic cactus farming and sorting
+- **bonesModule.py**: Bone farming with dinosaurs
 
-## Comment intégrer dans votre ferme existante
+## How to integrate into your existing farm
 
-Vous avez déjà vos propres scripts? Pas de problème:
+Already have your own scripts? No problem:
 
-1. Importez juste `tools.py` et `parameters.py`
-2. Utilisez `tools.drone_grid()` pour remplacer vos boucles manuelles
-3. Utilisez `tools.go_to()` pour vos déplacements
-4. Configurez `parameters.py` selon vos besoins
+1. Just import `tools.py` and `parameters.py`
+2. Use `tools.drone_grid()` to replace your manual loops
+3. Use `tools.go_to()` for your movements
+4. Configure `parameters.py` according to your needs
 
-Exemple d'intégration:
+Integration example:
 ```python
 import tools
 import parameters
 
-def ma_fonction_farm():
-    tools.drone_grid(ma_ligne_custom, mon_parametre)
+def my_custom_farm():
+    tools.drone_grid(my_custom_line, my_parameter)
 ```
 
 ## Support
 
-Si ces scripts vous aident à progresser dans le jeu, vous pouvez me soutenir:
+If these scripts help you progress in the game, you can support me:
 https://ko-fi.com/thorrdu
 
-## Référence du jeu
+## Game reference
 
-Wiki officiel: https://thefarmerwasreplaced.wiki.gg/
+Official wiki: https://thefarmerwasreplaced.wiki.gg/
 
