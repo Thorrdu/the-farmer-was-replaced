@@ -63,6 +63,69 @@ Efficiently clears the entire farm with drones before changing crops, to save yo
 tools.smart_clear()
 ```
 
+### check_till()
+
+Checks if the current ground is tilled, and tills it if necessary. Essential before planting.
+
+```python
+tools.check_till()
+```
+
+## Standalone functions for custom scripts
+
+### farm_line(cropType)
+
+Harvests and replants an entire line. Perfect for creating custom farming patterns.
+
+```python
+import farmModule
+
+def my_custom_farm():
+    for row in range(10):
+        farmModule.farm_line(Entities.Carrots)
+        move(North)
+```
+
+### plant_line(cropType)
+
+Plants a specific crop across an entire line. Handles special cases like Trees with Bush companions.
+
+```python
+import farmModule
+
+farmModule.plant_line(Entities.Tree)
+```
+
+### plant_crop(cropType)
+
+Smart planting function that handles all the requirements for a crop:
+- Automatically tills the ground if needed
+- Waters until optimal level
+- Applies fertilizer for pumpkins
+- Replants dead pumpkins automatically
+
+```python
+import farmModule
+
+tools.check_till()
+farmModule.plant_crop(Entities.Pumpkin)
+```
+
+Usage example combining multiple functions:
+```python
+import tools
+import farmModule
+
+def my_selective_harvest():
+    for row in range(tools.worldSize):
+        for col in range(tools.worldSize):
+            if can_harvest():
+                harvest()
+                farmModule.plant_crop(Entities.Carrots)
+            move(East)
+        move(North)
+```
+
 ## Specialized modules
 
 - **farmModule.py**: Automatic farming of all standard crops
