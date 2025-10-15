@@ -107,41 +107,33 @@ def call_func(f, arg):
 	f(arg)
 	
 def drone_grid(function,parameter):
-	currentPos = get_position()
-	if currentPos["x"] != 0 or currentPos["y"] != 0:
-		go_to(0,0)
+	go_to(0,0)
 
 	maxDrones = parameters.DRONE_NUMBER - 1
 	farmedLines = 0
-	while True:
-		if farmedLines < worldSize:
-			droneDiff = worldSize - farmedLines
-			
-			if droneDiff < maxDrones:
-				maxDrones = droneDiff
-					
+	while farmedLines < worldSize:
+		droneDiff = worldSize - farmedLines
+		
+		if num_drones() < maxDrones:
+			maxDrones = droneDiff
 				
-			activeDrones = []
-			while maxDrones > 0 and len(activeDrones) < maxDrones:
-				activeDrones.append(spawn_drone(drone_func(function,parameter)))
-				farmedLines += 1
-				if parameter != North:
-					move(North)
-				else:
-					move(East)
-						
-			call_func(function,parameter)
+		activeDrones = []
+		while maxDrones > 0 and len(activeDrones) < maxDrones:
+			activeDrones.append(spawn_drone(drone_func(function,parameter)))
 			farmedLines += 1
-			
 			if parameter != North:
 				move(North)
 			else:
 				move(East)
-			
-			for drone in activeDrones:
-				wait_for(drone)
+					
+		call_func(function,parameter)
+		farmedLines += 1
+		
+		if parameter != North:
+			move(North)
 		else:
-			break
-
-	return 1
+			move(East)
+		
+		for drone in activeDrones:
+			wait_for(drone)
 	

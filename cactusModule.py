@@ -2,32 +2,24 @@ import tools
 import farmModule
 import parameters
 
-
-
-def sort_line(direction):
-	sortComplete = False
-	
+def sort_line(direction):	
 	for tries in range(parameters.WORLD_SIZE):
-		if sortComplete:
-			break
-			
 		isSorted = True
 		for col in range(parameters.WORLD_SIZE - 1):
 			current = measure()
 			nextVal = measure(direction)
+			
 			if current > nextVal:
 				isSorted = False
 				swap(direction)
 			move(direction)
 		
 		if isSorted:
-			sortComplete = True
+			return 1
 		else:
 			move(direction)
 	
 	move(direction)
-
-	return 1
 
 def sort_grid():
 	tools.drone_grid(sort_line,East)

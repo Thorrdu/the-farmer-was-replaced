@@ -55,5 +55,5 @@ def invertDirection(direction):
 	elif direction == South:
 		invertedDirection = North
 	return invertedDirection
-		
-farm_treasures()
+	
+

@@ -1,5 +1,5 @@
 WORLD_SIZE = get_world_size()
-PRIORITY_CROP = Items.Gold
+PRIORITY_CROP = None
 DRONE_NUMBER = max_drones()
 
 PLANTS = [
