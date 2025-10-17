@@ -8,7 +8,7 @@ PLANTS = [
 		"plant":Entities.Sunflower,
 		"item":Items.Power,
 		"target":100000,
-		"priority":10
+		"priority":7
 	},
 	{
 		"name":"hay",

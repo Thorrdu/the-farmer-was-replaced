@@ -76,3 +76,7 @@ def plant_crop(cropType):
 			plant(cropType)
 		
 	return 1
+	
+def go_to_harvest(coordinates):
+	tools.go_to(coordinates[0],coordinates[1])
+	harvest()
