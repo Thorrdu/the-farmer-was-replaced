@@ -110,13 +110,9 @@ def call_func(f, arg):
 	
 def drone_grid(function,parameter):
 	go_to(0,0)
-	maxDrones = parameters.DRONE_NUMBER - 1
 	farmedLines = 0
 	activeDrones = []
-	while True:
-		
-		if farmedLines == worldSize:
-			break
+	while farmedLines < worldSize:
 
 		while farmedLines < worldSize and num_drones() < max_drones():
 			activeDrones.append(spawn_drone(drone_func(function,parameter)))
